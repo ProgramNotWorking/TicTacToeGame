@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class TicTacToeForm extends JFrame {
     private JPanel contentPanel;
@@ -40,96 +42,98 @@ public class TicTacToeForm extends JFrame {
             field8.setEnabled(true);
             field9.setEnabled(true);
 
-            field1.setText(null);
-            field2.setText(null);
-            field3.setText(null);
-            field4.setText(null);
-            field5.setText(null);
-            field6.setText(null);
-            field7.setText(null);
-            field8.setText(null);
-            field9.setText(null);
+            field1.setText("");
+            field2.setText("");
+            field3.setText("");
+            field4.setText("");
+            field5.setText("");
+            field6.setText("");
+            field7.setText("");
+            field8.setText("");
+            field9.setText("");
+
+            fillArray(fieldArray);
         });
 
         field1.addActionListener(e -> {
             field1.setText("X");
             field1.setEnabled(false);
             fieldArray[0] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field2.addActionListener(e -> {
             field2.setText("X");
             field2.setEnabled(false);
             fieldArray[1] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field3.addActionListener(e -> {
             field3.setText("X");
             field3.setEnabled(false);
             fieldArray[2] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field4.addActionListener(e -> {
             field4.setText("X");
             field4.setEnabled(false);
             fieldArray[3] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field5.addActionListener(e -> {
             field5.setText("X");
             field5.setEnabled(false);
             fieldArray[4] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field6.addActionListener(e -> {
             field6.setText("X");
             field6.setEnabled(false);
             fieldArray[5] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field7.addActionListener(e -> {
             field7.setText("X");
             field7.setEnabled(false);
             fieldArray[6] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field8.addActionListener(e -> {
             field8.setText("X");
             field8.setEnabled(false);
             fieldArray[7] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
         field9.addActionListener(e -> {
             field9.setText("X");
             field9.setEnabled(false);
             fieldArray[8] = true;
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
             winCheck();
             checkDrawSituation(fieldArray);
+            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
         });
 
     }
