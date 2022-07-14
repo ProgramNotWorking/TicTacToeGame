@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class TicTacToeForm extends JFrame {
     private JPanel contentPanel;
@@ -16,6 +14,8 @@ public class TicTacToeForm extends JFrame {
     private JButton field7;
     private JButton field8;
     private JButton field9;
+    private JRadioButton twoPlayers;
+    private JRadioButton computerGame;
 
     public TicTacToeForm() throws Exception {
 
@@ -26,124 +26,253 @@ public class TicTacToeForm extends JFrame {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.pack();
 
-        Boolean[] fieldArray = new Boolean[9];
+        boolean[] fieldArray = new boolean[9];
         fillArray(fieldArray);
+
+        final char[] whatSymbol = {'X'};
 
         exitButton.addActionListener(e -> System.exit(1));
 
         restartButton.addActionListener(e -> {
-            field1.setEnabled(true);
-            field2.setEnabled(true);
-            field3.setEnabled(true);
-            field4.setEnabled(true);
-            field5.setEnabled(true);
-            field6.setEnabled(true);
-            field7.setEnabled(true);
-            field8.setEnabled(true);
-            field9.setEnabled(true);
-
-            field1.setText("");
-            field2.setText("");
-            field3.setText("");
-            field4.setText("");
-            field5.setText("");
-            field6.setText("");
-            field7.setText("");
-            field8.setText("");
-            field9.setText("");
-
+            getRestartContent(whatSymbol);
             fillArray(fieldArray);
+            whatSymbol[0] = 'X';
+        });
+
+        this.computerGame.setSelected(true);
+        computerGame.addActionListener(e -> {
+            if (twoPlayers.isSelected())
+                twoPlayers.setSelected(false);
+
+            getRestartContent(whatSymbol);
+            fillArray(fieldArray);
+            whatSymbol[0] = 'X';
+        });
+
+        twoPlayers.addActionListener(e -> {
+            if (computerGame.isSelected())
+                computerGame.setSelected(false);
+
+            getRestartContent(whatSymbol);
+            fillArray(fieldArray);
+            whatSymbol[0] = 'X';
         });
 
         field1.addActionListener(e -> {
-            field1.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field1.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field1.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field1.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field1.setEnabled(false);
             fieldArray[0] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field2.addActionListener(e -> {
-            field2.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field2.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field2.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field2.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field2.setEnabled(false);
             fieldArray[1] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field3.addActionListener(e -> {
-            field3.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field3.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field3.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field3.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field3.setEnabled(false);
             fieldArray[2] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field4.addActionListener(e -> {
-            field4.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field4.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field4.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field4.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field4.setEnabled(false);
             fieldArray[3] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field5.addActionListener(e -> {
-            field5.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field5.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field5.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field5.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field5.setEnabled(false);
             fieldArray[4] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field6.addActionListener(e -> {
-            field6.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field6.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field6.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field6.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field6.setEnabled(false);
             fieldArray[5] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field7.addActionListener(e -> {
-            field7.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field7.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field7.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field7.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field7.setEnabled(false);
             fieldArray[6] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field8.addActionListener(e -> {
-            field8.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field8.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field8.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field8.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field8.setEnabled(false);
             fieldArray[7] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
         field9.addActionListener(e -> {
-            field9.setText("X");
+            if (twoPlayers.isSelected()) {
+                switch (whatSymbol[0]) {
+                    case 'X' -> {
+                        field9.setText("X");
+                        whatSymbol[0] = 'O';
+                    }
+                    case 'O' -> {
+                        field9.setText("O");
+                        whatSymbol[0] = 'X';
+                    }
+                }
+            }
+            if (computerGame.isSelected()) {
+                field9.setText("X");
+                setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            }
             field9.setEnabled(false);
             fieldArray[8] = true;
-            winCheck();
-            checkDrawSituation(fieldArray);
-            setZeroField(field1, field2, field3, field4, field5, field6, field7, field8, field9, fieldArray);
+            winCheck(whatSymbol);
+            checkDrawSituation(fieldArray, whatSymbol);
         });
 
     }
 
-    private void fillArray(Boolean[] Array) {
+    private void fillArray(boolean[] Array) {
         for (int i = 0; i < 9; i++)
             Array[i] = false;
     }
 
-    private int checkField(Boolean[] Array) {
+    private int checkField(boolean[] Array) {
         int randomCell = (int) (Math.random() * 9);
         boolean isNeededCell = false;
 
@@ -158,7 +287,7 @@ public class TicTacToeForm extends JFrame {
     }
 
     private void setZeroField(JButton field1, JButton field3, JButton field2, JButton field4, JButton field5,
-                                   JButton field6, JButton field7, JButton field8, JButton field9, Boolean[] Array) {
+                                   JButton field6, JButton field7, JButton field8, JButton field9, boolean[] Array) {
         switch (checkField(Array)) {
             case 0 -> {
                 field1.setText("0");
@@ -208,14 +337,16 @@ public class TicTacToeForm extends JFrame {
         }
     }
 
-    private void winCheck() {
-        int winStatus = checkWinStatus(field1, field2, field3, field4, field5, field6, field7, field8, field9);
+    private void winCheck(char[] symbol) {
+        String status = checkStatus(field1, field2, field3, field4, field5, field6, field7, field8, field9);
 
-        if (winStatus == 0 || winStatus == 1)
-            callTotalDialogWindow(winStatus);
+        if (status.equals("player") || status.equals("computer")) {
+            updateSymbolValue(symbol[0]);
+            callTotalDialogWindow(status);
+        }
     }
 
-    private void checkDrawSituation(Boolean[] Array) {
+    private void checkDrawSituation(boolean[] Array, char[] symbol) {
         int countFilledCells = 0;
 
         for (int i = 0; i < 9; i++) {
@@ -223,76 +354,106 @@ public class TicTacToeForm extends JFrame {
                 countFilledCells++;
         }
 
-        if (countFilledCells == 8)
-            callTotalDialogWindow(10);
+        if (countFilledCells == 8) {
+            updateSymbolValue(symbol[0]);
+            callTotalDialogWindow("draw");
+        }
     }
 
-    private int checkWinStatus(JButton field1, JButton field3, JButton field2, JButton field4, JButton field5,
+    private String checkStatus(JButton field1, JButton field2, JButton field3, JButton field4, JButton field5,
                                JButton field6, JButton field7, JButton field8, JButton field9) {
 
         if (field1.getText().equals(field5.getText()) && field1.getText().equals(field9.getText())
                 && field1.getText().equals("X")) {
-             return 1;
+             return "player";
         } else if (field1.getText().equals(field5.getText()) && field1.getText().equals(field9.getText())
                 && field1.getText().equals("0")) {
-            return 0;
+            return "computer";
         }  else if (field3.getText().equals(field5.getText()) && field3.getText().equals(field7.getText())
                 && field3.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field3.getText().equals(field5.getText()) && field3.getText().equals(field7.getText())
                 && field3.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field1.getText().equals(field4.getText()) && field1.getText().equals(field7.getText())
                 && field1.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field1.getText().equals(field4.getText()) && field1.getText().equals(field7.getText())
                 && field1.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field2.getText().equals(field5.getText()) && field2.getText().equals(field8.getText())
                 && field2.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field2.getText().equals(field5.getText()) && field2.getText().equals(field8.getText())
                 && field2.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field3.getText().equals(field6.getText()) && field3.getText().equals(field9.getText())
                 && field3.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field3.getText().equals(field6.getText()) && field3.getText().equals(field9.getText())
                 && field3.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field1.getText().equals(field2.getText()) && field1.getText().equals(field3.getText())
                 && field1.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field1.getText().equals(field2.getText()) && field1.getText().equals(field3.getText())
                 && field1.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field4.getText().equals(field5.getText()) && field4.getText().equals(field6.getText())
                 && field4.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field4.getText().equals(field5.getText()) && field4.getText().equals(field6.getText())
                 && field4.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else if (field7.getText().equals(field8.getText()) && field7.getText().equals(field9.getText())
                 && field7.getText().equals("X")) {
-            return 1;
+            return "player";
         } else if (field7.getText().equals(field8.getText()) && field7.getText().equals(field9.getText())
                 && field7.getText().equals("0")) {
-            return 0;
+            return "computer";
         } else {
-            return -1;
+            return "NONE";
         }
     }
 
-    private void callTotalDialogWindow(int number) {
+    private void callTotalDialogWindow(String totalSituation) {
         EventQueue.invokeLater(() -> {
-            JFrame totalFrame = null;
+            JFrame totalFrame;
             try {
-                totalFrame = new WinOrLoseDialogForm(number);
+                totalFrame = new WinOrLoseDialogForm(totalSituation);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
             totalFrame.setExtendedState(JFrame.NORMAL);
             totalFrame.setVisible(true);
         });
+    }
+
+    private void getRestartContent(char[] symbol) {
+        field1.setEnabled(true);
+        field2.setEnabled(true);
+        field3.setEnabled(true);
+        field4.setEnabled(true);
+        field5.setEnabled(true);
+        field6.setEnabled(true);
+        field7.setEnabled(true);
+        field8.setEnabled(true);
+        field9.setEnabled(true);
+
+        field1.setText("");
+        field2.setText("");
+        field3.setText("");
+        field4.setText("");
+        field5.setText("");
+        field6.setText("");
+        field7.setText("");
+        field8.setText("");
+        field9.setText("");
+
+        updateSymbolValue(symbol[0]);
+    }
+
+    private void updateSymbolValue(char symbol) {
+        symbol = 'X';
     }
 }

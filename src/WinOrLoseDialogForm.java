@@ -4,7 +4,7 @@ public class WinOrLoseDialogForm extends JFrame {
     private JTextArea textArea;
     private JPanel totalPanel;
 
-    public WinOrLoseDialogForm(int totalNumber) throws Exception {
+    public WinOrLoseDialogForm(String totalSituation) throws Exception {
 
         this.setTitle("");
         this.setContentPane(totalPanel);
@@ -15,12 +15,12 @@ public class WinOrLoseDialogForm extends JFrame {
 
         this.textArea.setEditable(false);
 
-        if (totalNumber == 1)
-            textArea.setText("Congrats\nU win!");
-        else if (totalNumber == 0)
-            textArea.setText("Unfortunately u lose\nTry again!");
-        else
-            textArea.setText("Draw!");
+        switch (totalSituation) {
+            case "player" -> textArea.setText("Congrats\nU win!");
+            case "computer" -> textArea.setText("Unfortunately u lose\nTry again!");
+            case "draw" -> textArea.setText("Draw!");
+            default -> textArea.setText("Error!\nDeveloper didn't learn smt");
+        }
 
     }
 
