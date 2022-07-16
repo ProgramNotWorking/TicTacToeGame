@@ -84,14 +84,14 @@ public class TicTacToeForm extends JFrame {
         field1.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field1.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field1.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -107,14 +107,14 @@ public class TicTacToeForm extends JFrame {
         field2.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field2.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field2.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -130,14 +130,14 @@ public class TicTacToeForm extends JFrame {
         field3.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field3.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field3.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -153,14 +153,14 @@ public class TicTacToeForm extends JFrame {
         field4.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field4.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field4.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -176,14 +176,14 @@ public class TicTacToeForm extends JFrame {
         field5.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field5.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field5.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -199,14 +199,14 @@ public class TicTacToeForm extends JFrame {
         field6.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field6.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field6.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -222,14 +222,14 @@ public class TicTacToeForm extends JFrame {
         field7.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field7.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field7.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -245,14 +245,14 @@ public class TicTacToeForm extends JFrame {
         field8.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field8.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field8.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -268,14 +268,14 @@ public class TicTacToeForm extends JFrame {
         field9.addActionListener(e -> {
             if (twoPlayers.isSelected()) {
                 switch (whatSymbol[0]) {
-                    case 'X': {
+                    case 'X' -> {
                         field9.setText("X");
                         whatSymbol[0] = 'O';
-                    } break;
-                    case 'O': {
+                    }
+                    case 'O' -> {
                         field9.setText("0");
                         whatSymbol[0] = 'X';
-                    } break;
+                    }
                 }
             }
             if (computerGame.isSelected()) {
@@ -312,51 +312,51 @@ public class TicTacToeForm extends JFrame {
     private void setZeroField(JButton field1, JButton field3, JButton field2, JButton field4, JButton field5,
                                    JButton field6, JButton field7, JButton field8, JButton field9, boolean[] Array) {
         switch (checkField(Array)) {
-            case 0: {
+            case 0 -> {
                 field1.setText("0");
                 field1.setEnabled(false);
                 Array[0] = true;
-            } break;
-            case 1: {
+            }
+            case 1 -> {
                 field2.setText("0");
                 field2.setEnabled(false);
                 Array[1] = true;
-            } break;
-            case 2: {
+            }
+            case 2 -> {
                 field3.setText("0");
                 field3.setEnabled(false);
                 Array[2] = true;
-            } break;
-            case 3: {
+            }
+            case 3 -> {
                 field4.setText("0");
                 field4.setEnabled(false);
                 Array[3] = true;
-            } break;
-            case 4: {
+            }
+            case 4 -> {
                 field5.setText("0");
                 field5.setEnabled(false);
                 Array[4] = true;
-            } break;
-            case 5: {
+            }
+            case 5 -> {
                 field6.setText("0");
                 field6.setEnabled(false);
                 Array[5] = true;
-            } break;
-            case 6: {
+            }
+            case 6 -> {
                 field7.setText("0");
                 field7.setEnabled(false);
                 Array[6] = true;
-            } break;
-            case 7: {
+            }
+            case 7 -> {
                 field8.setText("0");
                 field8.setEnabled(false);
                 Array[7] = true;
-            } break;
-            case 8: {
+            }
+            case 8 -> {
                 field9.setText("0");
                 field9.setEnabled(false);
                 Array[8] = true;
-            } break;
+            }
         }
     }
 
@@ -384,9 +384,8 @@ public class TicTacToeForm extends JFrame {
             String status = checkStatus(field1, field2, field3, field4, field5,
                     field6, field7, field8, field9, twoPlayers, computerGame);
 
-            if (status.equals("player") || status.equals("computer") || status.equals("X") || status.equals("O")) {}
-            else
-                callTotalDialogWindow("draw");
+            if (status.equals("NONE"))
+                callTotalDialogWindow(status);
         }
     }
 
@@ -528,37 +527,19 @@ public class TicTacToeForm extends JFrame {
 
     }
 
-//    private void callTotalDialogWindowTemp(String totalSituation) {
-//        EventQueue.invokeLater(() -> {
-//            JFrame totalFrame;
-//            try {
-//                totalFrame = new WinOrLoseDialogForm(totalSituation);
-//            } catch (Exception ex) {
-//                throw new RuntimeException(ex);
-//            }
-//            totalFrame.setExtendedState(JFrame.NORMAL);
-//            totalFrame.setVisible(true);
-//        });
-//    }
-
     private void callTotalDialogWindow(String totalSituation) {
         switch (totalSituation) {
-            case "player":
+            case "player" ->
                 JOptionPane.showMessageDialog(null, "Congrats\nU win!");
-                break;
-            case "computer":
+            case "computer" ->
                 JOptionPane.showMessageDialog(null, "Unfortunately u lose\nTry again!");
-                break;
-            case "draw":
+            case "draw" ->
                 JOptionPane.showMessageDialog(null, "Draw!");
-                break;
-            case "X":
+            case "X" ->
                 JOptionPane.showMessageDialog(null, "X mark player win!");
-                break;
-            case "O":
+            case "O" ->
                 JOptionPane.showMessageDialog(null, "O mark player win!");
-                break;
-            default:
+            default ->
                 JOptionPane.showMessageDialog(null, "Error!\nDeveloper didn't learn smth");
         }
     }
