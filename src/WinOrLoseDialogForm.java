@@ -15,12 +15,12 @@ public class WinOrLoseDialogForm extends JFrame {
 
         this.textArea.setEditable(false);
 
-        switch (totalSituation) {
-            case "player" -> textArea.setText("Congrats\nU win!");
-            case "computer" -> textArea.setText("Unfortunately u lose\nTry again!");
-            case "draw" -> textArea.setText("Draw!");
-            default -> textArea.setText("Error!\nDeveloper didn't learn smt");
-        }
+//        switch (totalSituation) {
+//            case "player" -> textArea.setText("Congrats\nU win!");
+//            case "computer" -> textArea.setText("Unfortunately u lose\nTry again!");
+//            case "draw" -> textArea.setText("Draw!");
+//            default -> textArea.setText("Error!\nDeveloper didn't learn smt");
+//        }
 
     }
 
